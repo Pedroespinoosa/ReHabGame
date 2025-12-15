@@ -1,7 +1,4 @@
 # Proyecto Web - RehabGame (Grupo J)
 
-Prototipo web para la gestión de pacientes de la aplicación RehabGame.
-Desarrollado con Spring Boot, H2 y Thymeleaf.
-
-Integrantes:
-Pedro Espinosa González
+Rama Entidad y Repositorio:
+En esta rama creamos las clases entidad Usuario y Paciente y el repositorio.
