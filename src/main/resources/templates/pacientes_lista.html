@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de Pacientes - RehabGame</title>
+    <style>
+        table { width: 80%; margin: 20px auto; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #4CAF50; color: white; }
+        .btn { padding: 5px 10px; text-decoration: none; border-radius: 4px; color: white; }
+        .btn-edit { background-color: #008CBA; }
+        .btn-delete { background-color: #f44336; }
+        .container { text-align: center; font-family: Arial, sans-serif; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Gestión de Pacientes (Diagrama RehabGame)</h1>
+        
+        <a th:href="@{/pacientes/nuevo}" class="btn" style="background-color: #555;">+ Nuevo Paciente</a>
+        <br/><br/>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>Patología</th> <th>Región</th>    <th>Nivel (RF3)</th>
+                    <th>Puntos (RF3)</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="paciente : ${listaPacientes}">
+                    <td th:text="${paciente.id}">1</td>
+                    <td th:text="${paciente.nombre}">Juan</td>
+                    <td th:text="${paciente.correo}">juan@uma.es</td>
+                    <td th:text="${paciente.patologia}">Esguince</td>
+                    <td th:text="${paciente.region}">Rodilla</td>
+                    <td th:text="${paciente.nivel}">1</td>
+                    <td th:text="${paciente.puntos}">0</td>
+                    <td>
+                        <a th:href="@{/pacientes/editar/{id}(id=${paciente.id})}" class="btn btn-edit">Editar</a>
+                        <a th:href="@{/pacientes/eliminar/{id}(id=${paciente.id})}" class="btn btn-delete" 
+                           onclick="return confirm('¿Estás seguro?');">Eliminar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
