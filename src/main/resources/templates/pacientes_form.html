@@ -3,49 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <title>Formulario Paciente</title>
-    <style>
-        body { font-family: Arial, sans-serif; display: flex; justify-content: center; padding-top: 50px; }
-        form { background: #f9f9f9; padding: 20px; border: 1px solid #ccc; border-radius: 5px; width: 300px; }
-        label { display: block; margin-top: 10px; font-weight: bold; }
-        input { width: 100%; padding: 5px; margin-top: 5px; }
-        button { margin-top: 20px; width: 100%; padding: 10px; background-color: #4CAF50; color: white; border: none; cursor: pointer; }
-    </style>
 </head>
 <body>
 
-    <div>
-        <h2 th:text="${paciente.id == null} ? 'Registrar Nuevo Paciente' : 'Editar Paciente'">Título</h2>
+    <h2 th:text="${paciente.idUsuario == null} ? 'Nuevo Paciente' : 'Editar Paciente'">Título</h2>
 
-        <form th:action="@{/pacientes/guardar}" th:object="${paciente}" method="post">
-            
-            <input type="hidden" th:field="*{id}" />
-
-            <label>Nombre Completo:</label>
-            <input type="text" th:field="*{nombre}" placeholder="Ej. Pedro Espinosa" required />
-
-            <label>Correo Electrónico:</label>
-            <input type="email" th:field="*{correo}" placeholder="Ej. pedro@uma.es" />
-
-            <label>Teléfono:</label>
-            <input type="text" th:field="*{telefono}" placeholder="600123456" />
-
-            <label>Patología:</label>
-            <input type="text" th:field="*{patologia}" placeholder="Ej. Tendinitis Rotuliana" required />
-
-            <label>Región Afectada:</label>
-            <input type="text" th:field="*{region}" placeholder="Ej. Rodilla Izquierda" required />
-
-            <label>Nivel Inicial:</label>
-            <input type="number" th:field="*{nivel}" min="1" value="1" />
-
-            <button type="submit">Guardar Paciente</button>
-        </form>
+    <form th:action="@{/pacientes/guardar}" th:object="${paciente}" method="post">
         
-        <br/>
-        <div style="text-align: center;">
-            <a th:href="@{/pacientes}">Volver al listado</a>
-        </div>
-    </div>
+        <input type="hidden" th:field="*{idUsuario}" />
+
+        <label>Nombre:</label>
+        <input type="text" th:field="*{nombre}" required /><br/><br/>
+
+        <label>Correo:</label>
+        <input type="email" th:field="*{correo}" /><br/><br/>
+
+        <label>Teléfono:</label>
+        <input type="text" th:field="*{telefono}" /><br/><br/>
+
+        <label>Contraseña:</label>
+        <input type="password" th:field="*{contrasena}" /><br/><br/>
+
+        <label>Patología:</label>
+        <input type="text" th:field="*{patologia}" required /><br/><br/>
+
+        <label>Región:</label>
+        <input type="text" th:field="*{region}" required /><br/><br/>
+
+        <button type="submit">Guardar</button>
+    </form>
+    
+    <br/>
+    <a th:href="@{/pacientes}">Volver a la lista</a>
 
 </body>
 </html>

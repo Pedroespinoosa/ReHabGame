@@ -1,3 +1,19 @@
+# Eclipse workspace
+/.metadata/
+/*.log
+
+# Mylyn
+/.mylyn/
+
+# Archivos de Eclipse JDT
+/.settings/
+/*.classpath
+/*.project
+/.plugins/
+
+# Historial de Eclipse
+/.metadata/.plugins/org.eclipse.core.resources/.history/
+
 HELP.md
 target/
 .mvn/wrapper/maven-wrapper.jar

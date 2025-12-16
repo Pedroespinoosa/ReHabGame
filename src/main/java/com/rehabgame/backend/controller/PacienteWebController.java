@@ -49,4 +49,5 @@ public class PacienteWebController {
         pacienteService.eliminarPaciente(idUsuario);
         return "redirect:/pacientes";
     }
+
 }

@@ -29,6 +29,8 @@ public class PacienteService {
 
     // CRUD: Eliminar
     public void eliminarPaciente(Long idUsuario) {
-        pacienteRepository.deleteById(idUsuario);
+    	if (pacienteRepository.existsById(idUsuario)) {
+            pacienteRepository.deleteById(idUsuario);
+        }
     }
 }
